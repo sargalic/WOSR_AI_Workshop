@@ -1,0 +1,59 @@
+openapi: 3.0.0
+info:
+  title: Simple Post API
+  version: 1.0.0
+servers:
+  - url: 'https://dummyjson.com'
+paths:
+  /posts:
+    get:
+      summary: List all posts
+      operationId: listPosts
+      responses:
+        '200':
+          description: An array of posts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  posts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Post'
+components:
+  schemas:
+    Post:
+      type: object
+      required:
+        - id
+        - title
+        - body
+        - userId
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        body:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        reactions:
+          $ref: '#/components/schemas/Reaction'
+        views:
+          type: integer
+        userId:
+          type: integer
+          format: int64
+    
+    Reaction:
+      type: object
+      properties:
+        likes:
+          type: integer
+        dislikes:
+          type: integer
