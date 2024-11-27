@@ -5,3 +5,4 @@ Make sure you activate you free google credits from the QR code in the presentat
 Please find details steps for the lab here: https://codelabs.developers.google.com/devsite/codelabs/building-ai-agents-vertexai#1 
 
 Please use the YAML definition in the dummy_posts.yaml to play around with the tooling of the AI Agent that you create.
+Add to the tools of the agent: - Use ${TOOL:Dummy posts} if the user's request contains a request to do with the content of posts
